@@ -19,7 +19,7 @@ end
 --   return
 -- end
 
-
+-- services for mason to auto install
 local services_map = {
   
 -- configure tsserver
@@ -41,7 +41,6 @@ emmet_ls = {
   filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 },
 
-
 -- configure lua server (with special settings)
 lua_ls = {
   settings = { -- custom settings for lua
@@ -62,27 +61,24 @@ lua_ls = {
 },
 
 
+yamlls = {},
 
--- yamlls = {},
-
--- dartls = {},
 
 }
 
 local service_names = {}  -- 用于承接键值对的数组
-print(string.format("service_names:%s", service_names))
 -- 将键值对存储在数组中
 for key, _ in pairs(services_map) do
   table.insert(service_names, key)
 end
 
+require("mason").setup()
 -- mason_lspconfig
 require("mason-lspconfig").setup({
   -- list of servers for mason to install
   ensure_installed = service_names,  -- auto-install configured servers (with lspconfig)
   automatic_installation = true, -- not the same as ensure_installed
 })
-
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
@@ -93,8 +89,7 @@ end
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
-print(string.format("services_map:%s", services_map))
-for ser_name, ser_conf in paris(services_map) do
+for ser_name, ser_conf in pairs(services_map) do
   local config = ser_conf
   if config == nil then
   config = {
@@ -108,8 +103,7 @@ for ser_name, ser_conf in paris(services_map) do
 
   end
 
-  print(string.format("one config:%s", config))
-  lspconfig.ser_name.setup({config})
+  lspconfig[ser_name].setup({config})
 end
 
 
@@ -120,4 +114,9 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+
+-- lsp service not installed bu mason
+require'lspconfig'.dartls.setup{}
+
 

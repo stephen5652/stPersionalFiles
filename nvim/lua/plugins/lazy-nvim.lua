@@ -41,7 +41,6 @@ lazy = true,
 
 {
     "akinsho/toggleterm.nvim",
-    tag = "*",
     lazy = true,
     config = function()
 require("plugins.toggleterm")
@@ -66,7 +65,6 @@ require("plugins.telescope")
 
 {
   'akinsho/bufferline.nvim', 
-  version = "*", 
   dependencies = 'nvim-tree/nvim-web-devicons',
   config = function()
 
@@ -76,7 +74,6 @@ require("plugins.telescope")
 
 {
   "nvim-tree/nvim-tree.lua",
-  version = "*",
   dependencies = {
     "nvim-tree/nvim-web-devicons", 
   },
@@ -114,13 +111,48 @@ require("plugins.lsp.lspconfig")
 
   {
 "hrsh7th/cmp-nvim-lsp",
-    lazy = true,
-    config = function()
+  },
 
-    end,
+  {
+"hrsh7th/nvim-cmp",
+    config = function()
+      require("plugins.cmp.cmp")
+  end,
+  },
+
+  {
+"onsails/lspkind.nvim",
+  },
+
+  {
+"hrsh7th/cmp-buffer",
   },
 
 
+  {
+"hrsh7th/cmp-path",
+  },
+
+  {
+"hrsh7th/cmp-cmdline",
+  },
+
+  {
+"L3MON4D3/LuaSnip",
+  },
+
+
+  {
+"saadparwaiz1/cmp_luasnip",
+  },
+
+  {
+"rafamadriz/friendly-snippets",
+  },
+
+  {
+"hrsh7th/cmp-vsnip",
+  },
 
   {
 

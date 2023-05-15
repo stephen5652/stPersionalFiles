@@ -118,4 +118,3 @@ local DEFAULT_SETTINGS = {
 }
 mason.setup({ DEFAULT_SETTINGS })
 
-print("mson setups")
