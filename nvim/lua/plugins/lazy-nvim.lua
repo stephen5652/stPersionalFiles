@@ -87,7 +87,6 @@ require("lazy").setup({
 	},
 
 	{
-
 		"williamboman/mason.nvim",
 		config = function()
 			require("plugins.mason")
@@ -145,7 +144,6 @@ require("lazy").setup({
 	},
 
 	{
-
 		"williamboman/mason-lspconfig.nvim",
 		config = function() end,
 	},
@@ -164,5 +162,18 @@ require("lazy").setup({
 		config = function()
 			require("plugins.cmp.null-ls")
 		end,
+	},
+
+	{
+		"rcarriga/nvim-notify",
+	},
+
+	{
+		"folke/tokyonight.nvim", -- color scheme
+		lazy = true,
+	},
+	{
+		"NvChad/nvim-colorizer.lua",
+		lazy = true,
 	},
 })

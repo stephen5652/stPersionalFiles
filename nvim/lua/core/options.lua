@@ -1,4 +1,5 @@
 local opt = vim.opt -- for conciseness
+vim.cmd([[colorscheme tokyonight]])
 
 -- line numbers
 opt.relativenumber = true -- show relative line numbers
