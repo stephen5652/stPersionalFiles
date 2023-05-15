@@ -176,4 +176,16 @@ require("lazy").setup({
 		"NvChad/nvim-colorizer.lua",
 		lazy = true,
 	},
+
+	{
+		"glepnir/lspsaga.nvim",
+		branch = "main",
+		dependencies = {
+			{ "nvim-tree/nvim-web-devicons" },
+			{ "nvim-treesitter/nvim-treesitter" },
+		},
+		config = function()
+			require("plugins.lsp.lspsaga")
+		end,
+	}, -- enhanced lsp uis
 })

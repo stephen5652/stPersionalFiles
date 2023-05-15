@@ -86,7 +86,7 @@ require("mason-lspconfig").setup({
 
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
-	local keybind_func = require("keyBing.key_mapping").lsp_on_attach_mapping_func
+	local keybind_func = require("keyBinding.key_mapping").lsp_on_attach_mapping_func
 	keybind_func(client, bufnr)
 end
 
@@ -105,7 +105,7 @@ for ser_name, ser_conf in pairs(services_map) do
 		config.on_attach = on_attach
 	end
 
-	lspconfig[ser_name].setup({ config })
+	lspconfig[ser_name].setup(config)
 end
 
 -- Change the Diagnostic symbols in the sign column (gutter)
