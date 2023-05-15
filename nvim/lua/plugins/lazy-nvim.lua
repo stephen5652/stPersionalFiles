@@ -95,11 +95,40 @@ require("plugins.telescope")
     end,
   },
 
+
+
+  {
+
+"williamboman/mason.nvim",
+    config = function()
+require('plugins.mason')
+    end,
+  },
+
   {
 "neovim/nvim-lspconfig",
     config = function()
 require("plugins.lsp.lspconfig")
     end,
   },
+
+  {
+"hrsh7th/cmp-nvim-lsp",
+    lazy = true,
+    config = function()
+
+    end,
+  },
+
+
+
+  {
+
+    "williamboman/mason-lspconfig.nvim",
+    config = function()
+
+    end,
+  },
+
 
 })

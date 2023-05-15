@@ -13,11 +13,11 @@ if not cmp_nvim_lsp_status then
 end
 
 -- import typescript plugin safely
-local typescript_setup, typescript = pcall(require, "typescript")
-if not typescript_setup then
-  vim.notify("typescript plugin start failed!")
-  return
-end
+--local typescript_setup, typescript = pcall(require, "typescript")
+--if not typescript_setup then
+--  vim.notify("typescript plugin start failed!")
+--   return
+-- end
 
 
 local services_map = {
@@ -62,37 +62,18 @@ lua_ls = {
 },
 
 
-clangd = {},
 
+-- yamlls = {},
 
-jsonls = {},
-
-marksman = {},
-
-pyright = {},
-
-standardrb = {},
-
-sqlls = {},
-
-vuels = {},
-
-
-wgsl_analyzer = {},
-
-lemminx = {},
-
-yamlls = {},
-
-dartls = {},
+-- dartls = {},
 
 }
 
 local service_names = {}  -- 用于承接键值对的数组
-
+print(string.format("service_names:%s", service_names))
 -- 将键值对存储在数组中
 for key, _ in pairs(services_map) do
-  service_names.insert(array, key)
+  table.insert(service_names, key)
 end
 
 -- mason_lspconfig
@@ -112,8 +93,9 @@ end
 -- used to enable autocompletion (assign to every lsp server config)
 local capabilities = cmp_nvim_lsp.default_capabilities()
 
+print(string.format("services_map:%s", services_map))
 for ser_name, ser_conf in paris(services_map) do
-  local config = ser_conwf
+  local config = ser_conf
   if config == nil then
   config = {
   capabilities = capabilities,
@@ -126,7 +108,8 @@ for ser_name, ser_conf in paris(services_map) do
 
   end
 
-  lspconfig.ser_name.setup(config)
+  print(string.format("one config:%s", config))
+  lspconfig.ser_name.setup({config})
 end
 
 
