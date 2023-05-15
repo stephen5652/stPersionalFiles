@@ -85,4 +85,14 @@ require("plugins.telescope")
   end,
 },
 
+
+  {
+    "nvim-treesitter/nvim-treesitter",
+    event = { "BufNewFile", "BufReadPost" },
+    build = ":TSUpdate",
+    config = function()
+      require("plugins.treesitter")
+    end,
+  },
+
 })
