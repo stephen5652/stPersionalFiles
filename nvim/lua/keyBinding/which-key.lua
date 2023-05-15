@@ -97,7 +97,7 @@ local setup = {
 }
 
 local opts = {
-  mode = "n", -- NORMAL mode
+  mode = {'n'}, -- NORMAL mode { 'n', 'v',}
   -- prefix = "W",
   buffer = nil, -- Global mappings. Specify a buffer number for buffer local mappings
   silent = true, -- use `silent` when creating keymaps

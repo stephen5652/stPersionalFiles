@@ -95,4 +95,11 @@ require("plugins.telescope")
     end,
   },
 
+  {
+"neovim/nvim-lspconfig",
+    config = function()
+require("plugins.lsp.lspconfig")
+    end,
+  },
+
 })
