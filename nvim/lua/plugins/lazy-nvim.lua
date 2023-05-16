@@ -47,6 +47,10 @@ require("lazy").setup({
 	},
 
 	{
+		"nvim-lua/plenary.nvim",
+	},
+
+	{
 		"nvim-telescope/telescope.nvim",
 		tag = "0.1.1",
 		-- or                              , branch = '0.1.1',
@@ -77,6 +81,13 @@ require("lazy").setup({
 		end,
 	},
 
+	-- Use treesitter to autoclose and autorename html tag
+	-- It work with html,tsx,vue,svelte,php,rescript.
+	{
+		"windwp/nvim-ts-autotag",
+		after = "nvim-treesitter",
+	}, -- autoclose tags
+
 	{
 		"nvim-treesitter/nvim-treesitter",
 		event = { "BufNewFile", "BufReadPost" },
@@ -84,6 +95,10 @@ require("lazy").setup({
 		config = function()
 			require("plugins.treesitter")
 		end,
+	},
+
+	{
+		"nvim-tree/nvim-web-devicons",
 	},
 
 	{
@@ -161,6 +176,18 @@ require("lazy").setup({
 		"jose-elias-alvarez/null-ls.nvim",
 		config = function()
 			require("plugins.cmp.null-ls")
+		end,
+	},
+
+	{
+		"akinsho/flutter-tools.nvim",
+		lazy = false,
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"stevearc/dressing.nvim", -- optional for vim.ui.select
+		},
+		config = function()
+			require("flutter-tools").setup({})
 		end,
 	},
 

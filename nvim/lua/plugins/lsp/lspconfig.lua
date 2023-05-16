@@ -68,6 +68,46 @@ local services_map = {
 	},
 
 	yamlls = {},
+	vuels = {
+		init_options = {
+			config = {
+				css = {},
+				emmet = {},
+				html = {
+					suggest = {},
+				},
+				javascript = {
+					format = {},
+				},
+				stylusSupremacy = {},
+				typescript = {
+					format = {},
+				},
+				vetur = {
+					completion = {
+						autoImport = false,
+						tagCasing = "kebab",
+						useScaffoldSnippets = true,
+					},
+					format = {
+						defaultFormatter = {
+							js = "none",
+							ts = "none",
+						},
+						defaultFormatterOptions = {},
+						scriptInitialIndent = false,
+						styleInitialIndent = false,
+					},
+					useWorkspaceDependencies = true,
+					validation = {
+						script = true,
+						style = true,
+						template = true,
+					},
+				},
+			},
+		},
+	},
 }
 
 local service_names = {} -- 用于承接键值对的数组
@@ -87,6 +127,7 @@ require("mason-lspconfig").setup({
 -- enable keybinds only for when lsp server available
 local on_attach = function(client, bufnr)
 	local keybind_func = require("keyBinding.key_mapping").lsp_on_attach_mapping_func
+
 	keybind_func(client, bufnr)
 end
 
@@ -117,4 +158,4 @@ for type, icon in pairs(signs) do
 end
 
 -- lsp service not installed bu mason
-require("lspconfig").dartls.setup({})
+-- require("lspconfig").dartls.setup({})
