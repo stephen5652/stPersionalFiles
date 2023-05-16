@@ -287,5 +287,14 @@ require("lazy").setup({
 
 	{
 		"kevinhwang91/nvim-hlslens",
+		config = function()
+			require("hlslens").setup()
+		end,
+	},
+	{
+		"simrat39/symbols-outline.nvim",
+		config = function()
+			require("plugins.symbols-outlin")
+		end,
 	},
 })
