@@ -13,11 +13,13 @@ if not cmp_nvim_lsp_status then
 end
 
 -- import typescript plugin safely
---local typescript_setup, typescript = pcall(require, "typescript")
---if not typescript_setup then
---  vim.notify("typescript plugin start failed!")
---   return
--- end
+local typescript_setup, typescript = pcall(require, "typescript")
+if not typescript_setup then
+	vim.notify("typescript plugin start failed!")
+	return
+end
+
+local npm_path = os.getenv("HOMEBREW_PREFIX") .. "/lib/node_modules/npm/bin"
 
 -- services for mason to auto install
 local services_map = {
@@ -68,46 +70,6 @@ local services_map = {
 	},
 
 	yamlls = {},
-	vuels = {
-		init_options = {
-			config = {
-				css = {},
-				emmet = {},
-				html = {
-					suggest = {},
-				},
-				javascript = {
-					format = {},
-				},
-				stylusSupremacy = {},
-				typescript = {
-					format = {},
-				},
-				vetur = {
-					completion = {
-						autoImport = false,
-						tagCasing = "kebab",
-						useScaffoldSnippets = true,
-					},
-					format = {
-						defaultFormatter = {
-							js = "none",
-							ts = "none",
-						},
-						defaultFormatterOptions = {},
-						scriptInitialIndent = false,
-						styleInitialIndent = false,
-					},
-					useWorkspaceDependencies = true,
-					validation = {
-						script = true,
-						style = true,
-						template = true,
-					},
-				},
-			},
-		},
-	},
 
 	clangd = {},
 
@@ -122,6 +84,17 @@ local services_map = {
 	sqlls = {},
 
 	wgsl_analyzer = {},
+
+	volar = {
+		filetypes = {
+			"typescript",
+			"javascript",
+			"javascriptreact",
+			"typescriptreact",
+			"vue",
+			"json",
+		},
+	},
 }
 
 local service_names = {} -- 用于承接键值对的数组
@@ -173,3 +146,11 @@ end
 
 -- lsp service not installed bu mason
 -- require("lspconfig").dartls.setup({})
+
+-- configure typescript server with plugin
+typescript.setup({
+	server = {
+		capabilities = capabilities,
+		on_attach = on_attach,
+	},
+})

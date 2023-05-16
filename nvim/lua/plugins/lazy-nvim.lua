@@ -178,6 +178,10 @@ require("lazy").setup({
 	},
 
 	{
+		"jose-elias-alvarez/typescript.nvim",
+	}, -- additional functionality for typescript server (e.g. rename file & update imports)
+
+	{
 		"jay-babu/mason-null-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
