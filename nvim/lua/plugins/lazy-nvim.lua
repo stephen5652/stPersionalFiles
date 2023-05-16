@@ -263,4 +263,29 @@ require("lazy").setup({
 			require("gitsigns").setup()
 		end,
 	},
+
+	{
+		"iamcco/markdown-preview.nvim",
+		run = "cd app && npm install",
+		setup = function()
+			vim.g.mkdp_filetypes = { "markdown" }
+		end,
+		ft = { "markdown" },
+	},
+
+	{
+		"lukas-reineke/indent-blankline.nvim",
+		config = function()
+			require("indent_blankline").setup({
+				-- for example, context is off by default, use this to turn it on
+				show_current_context = true,
+				show_current_context_start = true,
+				show_end_of_line = true,
+			})
+		end,
+	},
+
+	{
+		"kevinhwang91/nvim-hlslens",
+	},
 })
