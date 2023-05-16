@@ -108,6 +108,20 @@ local services_map = {
 			},
 		},
 	},
+
+	clangd = {},
+
+	jsonls = {},
+
+	marksman = {},
+
+	pyright = {},
+
+	standardrb = {},
+
+	sqlls = {},
+
+	wgsl_analyzer = {},
 }
 
 local service_names = {} -- 用于承接键值对的数组
