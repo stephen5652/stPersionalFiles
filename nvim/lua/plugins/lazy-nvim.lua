@@ -39,6 +39,10 @@ require("lazy").setup({
 	},
 
 	{
+		"szw/vim-maximizer",
+	},
+
+	{
 		"akinsho/toggleterm.nvim",
 		lazy = true,
 		config = function()
@@ -117,6 +121,9 @@ require("lazy").setup({
 
 	{
 		"hrsh7th/cmp-nvim-lsp",
+		config = function()
+			require("cmp_nvim_lsp").setup()
+		end,
 	},
 
 	{
@@ -159,6 +166,13 @@ require("lazy").setup({
 	},
 
 	{
+		"windwp/nvim-autopairs",
+		config = function()
+			require("nvim-autopairs").setup()
+		end,
+	},
+
+	{
 		"williamboman/mason-lspconfig.nvim",
 		config = function() end,
 	},
@@ -193,6 +207,10 @@ require("lazy").setup({
 
 	{
 		"rcarriga/nvim-notify",
+		lazy = true,
+		config = function()
+			require("plugins.vim-motify")
+		end,
 	},
 
 	{
@@ -218,4 +236,31 @@ require("lazy").setup({
 			require("plugins.lsp.lspsaga")
 		end,
 	}, -- enhanced lsp uis
+
+	{
+		"tpope/vim-surround",
+	}, -- add, delete, change surroundings (it's awesome)
+
+	{
+		"inkarkat/vim-ReplaceWithRegister", -- replace with register contents using motion (gr + motion)
+		config = function()
+			require("Comment").setup()
+		end,
+	},
+
+	-- commenting with gc
+	{
+		"numToStr/Comment.nvim",
+		config = function()
+			require("Comment").setup()
+		end,
+	},
+
+	{
+
+		"lewis6991/gitsigns.nvim", -- show line modifications on left hand side
+		config = function()
+			require("gitsigns").setup()
+		end,
+	},
 })
