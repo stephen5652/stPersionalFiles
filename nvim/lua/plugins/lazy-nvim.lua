@@ -13,6 +13,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{ -- statusline
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plugins.lualine")
+		end,
+	},
+
 	{
 		"folke/which-key.nvim",
 		config = function()
