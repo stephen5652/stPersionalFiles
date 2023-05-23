@@ -13,6 +13,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
+	{ -- statusline
+		"nvim-lualine/lualine.nvim",
+		config = function()
+			require("plugins.lualine")
+		end,
+	},
+
 	{
 		"folke/which-key.nvim",
 		config = function()
@@ -178,6 +185,10 @@ require("lazy").setup({
 	},
 
 	{
+		"jose-elias-alvarez/typescript.nvim",
+	}, -- additional functionality for typescript server (e.g. rename file & update imports)
+
+	{
 		"jay-babu/mason-null-ls.nvim",
 		event = { "BufReadPre", "BufNewFile" },
 		dependencies = {
@@ -287,5 +298,26 @@ require("lazy").setup({
 
 	{
 		"kevinhwang91/nvim-hlslens",
+		config = function()
+			require("hlslens").setup()
+		end,
+	},
+	{
+		"simrat39/symbols-outline.nvim",
+		config = function()
+			require("plugins.symbols-outlin")
+		end,
+	},
+
+	{
+		"akinsho/toggleterm.nvim",
+		tag = "*",
+		config = function()
+			require("plugins.toggleterm")
+		end,
+	},
+
+	{
+		"mfussenegger/nvim-jdtls",
 	},
 })

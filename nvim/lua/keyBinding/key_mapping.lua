@@ -240,7 +240,6 @@ local which_key_common_map_register = function()
 				o = { "<C-w><c-o>", "Close other split windows", which_key_opts },
 				m = { "<cmd>MaximizerToggle<cr>", "Make split window maximization", which_key_opts },
 				n = { "<cmd>tabnew %<cr>", "Make current cursor tab to new", which_key_opts },
-				q = { "<cmd>FineCmdline<CR>", "Enter cmd mode", which_key_opts },
 			},
 		},
 		{
