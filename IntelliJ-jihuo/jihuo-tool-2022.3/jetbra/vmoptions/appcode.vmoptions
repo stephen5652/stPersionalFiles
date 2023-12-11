@@ -1,5 +1,5 @@
 -Xms128m
--Xmx1024m
+-Xmx16384m
 -XX:ReservedCodeCacheSize=512m
 -XX:+IgnoreUnrecognizedVMOptions
 -XX:+UseG1GC
@@ -19,4 +19,4 @@
 --add-opens=java.base/jdk.internal.org.objectweb.asm=ALL-UNNAMED
 --add-opens=java.base/jdk.internal.org.objectweb.asm.tree=ALL-UNNAMED
 
--javaagent:/Users/chris/Desktop/stPersionalFiles/IntelliJ-jihuo/jihuo-tool-2022.3/jetbra/ja-netfilter.jar=jetbrains
+-javaagent:/Users/stephenchen/STWork/stPersionalFiles/IntelliJ-jihuo/jihuo-tool-2022.3/jetbra/ja-netfilter.jar=jetbrains
